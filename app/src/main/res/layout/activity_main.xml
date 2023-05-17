@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/lot_size_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="monospace"
+            android:text="Calculate Lot Size"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lot_size_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/lot_size_action_bar"
+        android:layout_margin="20dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <EditText
+                android:id="@+id/account_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Account Size ($)"
+                android:textColor="@android:color/black"
+                android:fontFamily="monospace"
+                android:textSize="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:inputType="numberDecimal"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+            <EditText
+                android:id="@+id/rpt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter RPT ($)"
+                android:textColor="@android:color/black"
+                android:fontFamily="monospace"
+                android:textSize="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+            <EditText
+                android:id="@+id/sl_pips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter SL Pips"
+                android:textColor="@android:color/black"
+                android:fontFamily="monospace"
+                android:textSize="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp">
+            <EditText
+                android:id="@+id/target_pips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Target Pips"
+                android:textColor="@android:color/black"
+                android:fontFamily="monospace"
+                android:textSize="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/calculate_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/output_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/lot_size_linear_layout"
+        android:gravity="center"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Lot Name:"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/output_lot_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text=""/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Lot:"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/output_lot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text=""/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Lot Value per Pip:"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/output_lot_value_per_pip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text=""/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Total Loss:"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/output_total_loss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text=""/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Total Profit:"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/output_total_profit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text=""/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
